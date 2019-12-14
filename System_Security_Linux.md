@@ -14,7 +14,7 @@
 
 - 계정 목록을 저장하고 있는 파일
 
-![Day%205%206/Untitled.png](Day%205%206/Untitled.png)
+![Day%205%206/Untitled.png](images/Day%205%206/Untitled.png)
 
 ## UID(UserID), GID(GroupID)
 
@@ -25,7 +25,7 @@
 
 ---
 
-![Day%205%206/Untitled%201.png](Day%205%206/Untitled%201.png)
+![Day%205%206/Untitled%201.png](images/Day%205%206/Untitled%201.png)
 
 [파일 접근 권한 ①](https://www.notion.so/5d972cdfd26946d388fcf551f6351481)
 
@@ -40,7 +40,7 @@
 - `getid /etc/profile` (/etc/profile 파일 수정)
 - 파일 하단에 umask 022 입력 후, 저장
 
-![Day%205%206/Untitled%202.png](Day%205%206/Untitled%202.png)
+![Day%205%206/Untitled%202.png](images/Day%205%206/Untitled%202.png)
 
 - 디렉토리, 파일 생성
 `mkdir dir-umask-022`      umask-022 디렉토리 생성
@@ -49,7 +49,7 @@
     - txt-umask-022 (**644** ← 666 - 022)
     - umsk-022     (**755** ← 777 - 022)
 
-![Day%205%206/Untitled%203.png](Day%205%206/Untitled%203.png)
+![Day%205%206/Untitled%203.png](images/Day%205%206/Untitled%203.png)
 
 ## 계정 관리
 
@@ -62,7 +62,7 @@
 - 패스워드에 대한 보안 정책 적용이 가능
 - 임의 생성된 관리자 계정의 존재 여부를 확인 ⇒ 관리자 계정은 root 외의 다른 이름을 사용하도록 함
 
-![Day%205%206/Untitled%204.png](Day%205%206/Untitled%204.png)
+![Day%205%206/Untitled%204.png](images/Day%205%206/Untitled%204.png)
 
 ### 서버 이전시, 계정정보와 패스워드의 안전한 보호
 
@@ -99,7 +99,7 @@
 
 [/bin/false 과 /sbin/nologin](https://www.notion.so/45c76c94f2f2412abd284f6d0fa42e56)
 
-![Day%205%206/Untitled%205.png](Day%205%206/Untitled%205.png)
+![Day%205%206/Untitled%205.png](images/Day%205%206/Untitled%205.png)
 
 - 윈도우에서 telnet으로 Kali#1에 접근 
 > `telnet Kali#1의 ip` 
@@ -107,7 +107,7 @@
     - /bin/false인 경우 ⇒ 메시지 출력없이 연결 해제
     - /usr/sbin/nologin 인 경우 ⇒ 메시지 출력 후 연결 해제
 
-![Day%205%206/Untitled%206.png](Day%205%206/Untitled%206.png)
+![Day%205%206/Untitled%206.png](images/Day%205%206/Untitled%206.png)
 
 쉘이 없는 사용자에게는 접근 불가
 
@@ -122,29 +122,29 @@
 - SetUID 파일을 삭제한다 (권장)
 - `find / -user root -perm /4000`  파일 소유자가 root이면서 setuid 비트를 가진 파일 찾기
 
-![Day%205%206/Untitled%207.png](Day%205%206/Untitled%207.png)
+![Day%205%206/Untitled%207.png](images/Day%205%206/Untitled%207.png)
 
 - **SetUID 설정 (실습)**
     - /test/dash 파일 생성 (복사)  `cp /bin/dash /test/dash`
 
-    ![Day%205%206/Untitled%208.png](Day%205%206/Untitled%208.png)
+    ![Day%205%206/Untitled%208.png](images/Day%205%206/Untitled%208.png)
 
     - setuid 설정 `chmod 4xxxx '파일명'`
 
-    ![Day%205%206/Untitled%209.png](Day%205%206/Untitled%209.png)
+    ![Day%205%206/Untitled%209.png](images/Day%205%206/Untitled%209.png)
 
     - user11에서 해당 파일 실행 **프롬프트 ⇒ # (관리자 권한 획득)**
 
-    ![Day%205%206/Untitled%2010.png](Day%205%206/Untitled%2010.png)
+    ![Day%205%206/Untitled%2010.png](images/Day%205%206/Untitled%2010.png)
 
 - **SetUID 설정 - 프로그래밍 (실습)**
     - 소스코드 파일(.c) 컴파일
 
-    ![Day%205%206/Untitled%2011.png](Day%205%206/Untitled%2011.png)
+    ![Day%205%206/Untitled%2011.png](images/Day%205%206/Untitled%2011.png)
 
     - backdoor 파일 확인
 
-    ![Day%205%206/Untitled%2012.png](Day%205%206/Untitled%2012.png)
+    ![Day%205%206/Untitled%2012.png](images/Day%205%206/Untitled%2012.png)
 
 ## 패스워드 복잡도
 
@@ -162,27 +162,27 @@
 `cd /apt`
 `wget '압축파일 주소'`
 
-![Day%205%206/Untitled%2013.png](Day%205%206/Untitled%2013.png)
+![Day%205%206/Untitled%2013.png](images/Day%205%206/Untitled%2013.png)
 
 - 압축 파일 해제
 `tar xvf '압축 파일명'`
 
-![Day%205%206/Untitled%2014.png](Day%205%206/Untitled%2014.png)
+![Day%205%206/Untitled%2014.png](images/Day%205%206/Untitled%2014.png)
 
 - 압축 해제된 파일 중, src 디렉토리로 이동
 
-![Day%205%206/Untitled%2015.png](Day%205%206/Untitled%2015.png)
+![Day%205%206/Untitled%2015.png](images/Day%205%206/Untitled%2015.png)
 
 - run 디렉토리 이동
 
-![Day%205%206/Untitled%2016.png](Day%205%206/Untitled%2016.png)
+![Day%205%206/Untitled%2016.png](images/Day%205%206/Untitled%2016.png)
 
 - /etc/shadow파일을 /etc/passwd로 바꾼 후, myfile로 저장
 `./unshadow /etc/passwd /etc/shadow > myfile`
 - myfile 실행 (크래킹)
 `./john myfile`
 
-![Day%205%206/Untitled%2017.png](Day%205%206/Untitled%2017.png)
+![Day%205%206/Untitled%2017.png](images/Day%205%206/Untitled%2017.png)
 
 ## 모바일
 
@@ -198,4 +198,4 @@
 [https://developer.android.com/guide/topics/security/permissions.html?hl=ko](https://developer.android.com/guide/topics/security/permissions.html?hl=ko)
 [https://developer.android.com/guide/topics/permissions/overview?hl=ko](https://developer.android.com/guide/topics/permissions/overview?hl=ko)
 
-![Day%205%206/Untitled%2018.png](Day%205%206/Untitled%2018.png)
+![Day%205%206/Untitled%2018.png](images/Day%205%206/Untitled%2018.png)

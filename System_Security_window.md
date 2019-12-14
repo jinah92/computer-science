@@ -25,19 +25,19 @@
 
 - 사용자 계정 확인 : `net users`
 
-![Day%205%206/Untitled.png](Day%205%206/Untitled.png)
+![Day%205%206/Untitled.png](images/Day%205%206/Untitled.png)
 
 - 사용자 그룹 확인 : `net localgroup` (관리자 계정 그룹`net localgroup administrators`)
 
-![Day%205%206/Untitled%201.png](Day%205%206/Untitled%201.png)
+![Day%205%206/Untitled%201.png](images/Day%205%206/Untitled%201.png)
 
 - 명령어 사용법 : `net users /?` 또는 `net user?`
 
-![Day%205%206/Untitled%202.png](Day%205%206/Untitled%202.png)
+![Day%205%206/Untitled%202.png](images/Day%205%206/Untitled%202.png)
 
 - 명령어 상세 도움말 : `net users /help`
 
-![Day%205%206/Untitled%203.png](Day%205%206/Untitled%203.png)
+![Day%205%206/Untitled%203.png](images/Day%205%206/Untitled%203.png)
 
 ### 운영체제의 계정 관리
 
