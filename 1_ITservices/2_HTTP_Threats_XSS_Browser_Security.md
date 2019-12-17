@@ -1,10 +1,5 @@
 # (DAY 2) HTTP 인증방식, XSS, CSP
 
-Created: Dec 03, 2019 9:09 AM
-Tags: CSP, HTTP, HTTP 요청 및 응답, Redirect, XSS, 브라우저 보안, 시큐어코딩, 인증
-URL: https://lambdaexp.tistory.com/39
-Updated: Dec 11, 2019 7:40 PM
-
 ## MSA (MicroService Architecture)
 
 ---
@@ -50,15 +45,15 @@ ID : ___________ -------------------> `login.do?id=___________` (일치하는 
 PW : ___________ [Login]                  `&pw=___________` 
 
                                                         - 일치하는 정보가 존재하면 Session ID를 생성
-
+    
                                                          -  사용자 관련 정보를 세션에 저장
-
+    
                      `Set-cookie : SID=1234`
-
+    
                         <-------------------
-
+    
                      `Cookie : SID = 1234`
-
+    
                          ------------------> 클라이언트가 전달한 세션ID를 이용해서 사용자를 식별, 서비스 제공
 
 ## HTTP 요청/응답 구조 & 보안공격
@@ -182,11 +177,11 @@ Content-Length: 2048 \n  ****
 헤더   Set-Cookie : role=user \n
 
     Location: **main.do \n ... \n\n ...<script></script>... \nHTTP/1.1 200 OK \n ...** \n
-
+    
     Content-Type: text/html \n
-
+    
     Content-Length: 2048 \n  ****
-
+    
     \n
 
 본문 <html><head> ... </head><body>...</body></html>
@@ -300,6 +295,7 @@ PW: _____                                                    | HTTP/1.1 200 OK
         ==> 서버측에서 자원의 사용여부를 헤더로 알려줌
 
 - **CSP (Content Security Policy) = 콘텐츠 보안 정책**
+    
     - 브라우저에 특정 리소스 세트를 허용 가능한 것으로 처리하고 나머지는 거부하도록 명백히 지시하는 방법
 
 ## XSS **(Cross-Site Scripting)**
