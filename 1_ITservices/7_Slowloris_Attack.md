@@ -1,9 +1,5 @@
 # (Day 7) Slowloris Attack
 
-Created: Dec 11, 2019 1:14 PM
-Tags: slowloris
-Updated: Dec 11, 2019 10:48 PM
-
 ## Slowloris Attack
 
 - HTTP 요청 헤더와 본문이 개행문자로 구분되는 특징을 이용한 공격

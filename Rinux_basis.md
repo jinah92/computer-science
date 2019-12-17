@@ -1,7 +1,7 @@
 # (Day 3) 리눅스 개념 및 명령어 - 1
 
 Created: Dec 16, 2019 9:35 AM
-Updated: Dec 16, 2019 11:39 PM
+Updated: Dec 17, 2019 8:45 AM
 
 ### API 와 엔진의 차이
 
@@ -148,3 +148,5 @@ logout 또는 exit
  - 변경 사항을 확인
 
 ![Day%203%201/Untitled%209.png](images/Day%203%201/Untitled%209.png)
+
+### 도움말 `man` + `<명령어>`

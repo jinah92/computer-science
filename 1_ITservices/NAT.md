@@ -1,9 +1,5 @@
 # NAT
 
-Created: Dec 11, 2019 9:20 AM
-Tags: NAT, 가상머신
-Updated: Dec 11, 2019 9:21 AM
-
 ## NAT(Network Address Translation)과 NAT 네트워크
 
 ---
