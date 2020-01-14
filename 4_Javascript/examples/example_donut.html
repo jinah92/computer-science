@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      var donut = function(){
+          this.name;
+          this.type;
+          this.store;
+          this.kcal;
+      }
+      var d = [];
+      
+      // donut 객체 생성 및 속성 추가
+      for (i=0; i<10; i++){
+          d[i] = new donut();
+          d[i].name = "도넛" + (i+1);
+          d[i].type = "타입" + (i+1);
+          d[i].store = "상점" + (i+1);
+          d[i].kcal = "칼로리" + ((i+1)*100);
+      }
+
+      // donut 객체 및 속성 출력(1)
+      for (i=0; i<10; i++){
+          document.write((i+1) + "번째 donut 객체<hr>")
+          document.write("이름: " + d[i].name + "<br>");
+          document.write("타입: " + d[i].type + "<br>");
+          document.write("상점: " + d[i].store + "<br>");
+          document.write("칼로리: " + d[i].kcal + "<br><hr>");
+      }
+
+      // donut 객체 및 속성 출력(1)
+      for (i=0; i<10; i++){
+          document.write("<strong>" + (i+1) +"번째 donut 객체</strong><hr>")
+
+          for (j in d[i]){
+              document.write("속성" + j + ": " + d[i][j] + "<br>");
+          }
+          document.write("<hr>");
+      }
+
+      let name = ['오늘의 도넛', '내일의 도넛', '베스트', '그냥 도넛', '모두의 도넛', '직장인 도넛', '교육생 도넛', '대중적인 도넛', '자바 도넛', '블록체인 도넛'];
+      let type = ['크림', '초코', '플레인', '버터', '시나몬', '잼'];
+      let store = ['학교', '멀티캠퍼스', '크리스피', '기타'];
+      let kcal = [100, 200, 300, 400, 500];
+
+      var generrateRan = function(min, max){
+          var ranNum = Math.floor(Math.random()*(max-min+1))+ min;
+          return ranNum;
+      }
+      
+      var test = [];
+      for (i=0; i<10; i++){
+          test[i] = new donut();
+          test[i].name = name[i];
+          test[i].type = type[Math.round(generrateRan(0, 5))];
+          test[i].store = store[Math.round(generrateRan(0, 4))];
+          test[i].kcal = kcal[Math.round(generrateRan(0, 4))];
+      }
+
+      for (i=0; i<10; i++){
+          document.write((i+1) + "번째 donut 객체<hr>")
+          document.write("이름: " + test[i].name + "<br>");
+          document.write("타입: " + test[i].type + "<br>");
+          document.write("상점: " + test[i].store + "<br>");
+          document.write("칼로리: " + test[i].kcal + "<br><hr>");
+      }
+      
+   
+    </script>
+</body>
+</html>
