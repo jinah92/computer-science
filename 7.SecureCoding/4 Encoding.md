@@ -1,9 +1,6 @@
 # Encoding
 
-Class: Secure Coding
-Created: Mar 13, 2020 4:23 PM
-Reviewed: No
-Type: command injection
+
 
 # Command Injection
 
@@ -36,3 +33,29 @@ Type: command injection
 - 기본 인증 ⇒ 취약한 인코딩 방법
 
     해커가 스니핑 ⇒  인코딩/디코딩을 통해 데이터 내용을 확인할 수 있음
+
+## 코드 예제
+
+---
+
+### (서버 side) URL 디코딩  - URLDecoder.decode();
+
+### (서버 side) HTTP 인코딩 - data.replaceAll( target, result);
+
+```java
+public String testXss(HttpServletRequest request) {
+		StringBuffer buffer=new StringBuffer();
+		String data=request.getParameter("data");
+		//replaceAll : String 객체의 메소드
+		data = URLDecoder.decode(data);
+		String regex = "(?i)<script>";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(data);
+		if(m.find()){	// matches : 비교하려는 문자열이 패턴과 완벽히 일치하면 true, 아니면 false
+							// find : 비교하려는 문자열이 패턴을 포함하고 있으면 true, 아니면 false
+			data = data.replaceAll("<", "&lt;").replaceAll(">", "&gt;"); //HTML Encoding			
+		}	
+		buffer.append(data);
+        return buffer.toString();	
+	}
+```

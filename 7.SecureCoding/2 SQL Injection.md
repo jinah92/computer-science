@@ -1,9 +1,6 @@
 # SQL Injection
 
-Class: Secure Coding
-Created: Mar 12, 2020 2:43 PM
-Reviewed: No
-Type: SQL injection
+
 
 ## 쿼리 조작
 
