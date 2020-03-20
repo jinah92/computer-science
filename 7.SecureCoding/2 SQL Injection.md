@@ -67,9 +67,9 @@ where id= 'admin'#' and pw='[아무 값]**'**'
 
 ---
 
-![SQL%20Injection/Untitled.png](SQL%20Injection/Untitled.png)
+![SQL%20Injection/Untitled.png](img/SQL%20Injection/Untitled.png)
 
-![SQL%20Injection/Untitled%201.png](SQL%20Injection/Untitled%201.png)
+![SQL%20Injection/Untitled%201.png](img/SQL%20Injection/Untitled%201.png)
 
 **정적 쿼리를 사용할 수 없는 환경 (Parameterized API 사용불가)**
  ⇒ 필터링 으로 대응 

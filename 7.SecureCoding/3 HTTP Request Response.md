@@ -1,8 +1,6 @@
 # HTTP Request, Response
 
-Class: Secure Coding
-Created: Mar 12, 2020 4:29 PM
-Reviewed: No
+
 
 ### 취약한 HTTP Method
 
